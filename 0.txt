@@ -1,0 +1,37 @@
+######################################
+
+BUGS:
+  - Make sure user is only in one server at a time
+
+######################################
+
+Alex TODO:
+  - Update todo list (move paper list to LOW PRI)
+  - Make game start menu in js
+
+Gabe TODO:
+  - Join repl.it
+
+Zach TODO:
+  - Finish making updatePosition dynamic. Make it into a function and then recall setInterval(functionName, interval). Resume button needs to call setInterval
+  - Allow users to login using a google account
+  - Sync user data on accounts
+  - Fix blur of pixel blocks
+
+######################################
+
+Low pri:
+  - Make resize event look better
+  - Clean up controls (sperate into files)
+  - Improve controler support
+  - Add mobile support
+  - Add 3d objects for people
+  - Add bots
+  - Settings before game loads
+  - Loading screen before load menu
+  - Load menu for server connect
+  - Accounts
+  - Get better background image
+  - Improve logo for site
+
+######################################

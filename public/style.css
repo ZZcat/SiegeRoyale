@@ -1,0 +1,90 @@
+body {
+  color: white;
+  margin: 0;
+  text-align: center;
+  background-color: black;
+  background-image: url('https://placekitten.com/g/200/300');
+  background-repeat: repeat;
+  cursor: crosshair;
+  overflow: hidden;
+  margin: 0;
+}
+.ui {
+  position: absolute;
+}
+
+button {
+  position: absolute;
+  display: block;
+  z-index: 99;
+}
+
+canvas {
+  position: absolute;
+  display: block;
+  width: 0%;
+  height: 0%;
+}
+
+center {
+  background: black;
+  color: white;
+  border-radius: 1em;
+  padding: 0em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%) 
+}
+
+svg {
+  fill: transparent;
+  fill-opacity: 0;
+  background: transparent;
+  background-size: 0px;
+}
+
+
+.map_wrapper {
+  position: relative;
+  height: 100px;
+  width: 300px;
+  border: 1px solid black;
+  overflow: hidden;
+  cursor: default;
+}
+
+#crosshair-h{
+  height:2px;
+  top: 50%;
+}
+#crosshair-v{
+  width:2px;
+  left:50%;
+}
+.hair{
+  position:fixed;
+  background-color:rgba(0,0,0,1);
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+
+#gui_container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+#mainMenu_container{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
+#gui{
+  transform:translate(-50%, -100px); // - Half size
+}

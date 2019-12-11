@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Siege Royale</title>
+    <link rel = "icon" href = "images/icon.png" 
+        type = "image/x-icon"> 
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gui.css">
+  </head>
+  <body>
+    <div id="main"></div>
+    <canvas id="canvasM"></canvas>
+    <div id="mainMenu_container"></div>
+    <div id="gui_container"></div>
+
+    <div id="crosshair-h" class="hair"></div>
+    <div id="crosshair-v" class="hair"></div>
+  
+    <center><div id="txt"></div></center>
+    <script>var canvas = document.getElementById("canvasM");</script>
+    <script src='scripts/stats.min.js'></script>
+    <script src='scripts/threex.rendererstats.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pep/0.4.0/jquery.pep.min.js"></script>
+    <script src='stats.js'></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script src="https://threejs.org/build/three.min.js"></script>
+    <script src='scripts/OBJLoader.js'></script>
+    <script src="https://unpkg.com/three@0.87.1/examples/js/loaders/GLTFLoader.js"></script>
+    <script src="scripts/dat.gui.js"></script>
+    
+    
+    <script src="scripts/sky.js"></script>
+    
+    <script src="config.js"></script>
+    <script src="player.js"></script>
+    <script src="controls.js"></script>
+    <script src="network.js"></script>
+    <script src="graphics.js"></script>
+    <script src="crosshair.js"></script>
+    <script src="gui_inGame.js"></script>
+    <script src="gui_mainMenu.js"></script>
+    <script src="main.js"></script>
+    
+  </body>
+</html>
