@@ -17,6 +17,10 @@ function gfxZ () {
     renderer.setSize( window.innerWidth, window.innerHeight );
     // Append Renderer to DOM
     document.body.appendChild( renderer.domElement );
+
+    renderer.domElement.id = 'main';
+    main_container.appendChild(renderer.domElement);
+
     renderer.shadowMap.enabled = this.shadows; //shadows on/off
     renderer.shadowMap.autoUpdate = false; // do not automatically update the shadow map
     renderer.shadowMap.type = THREE.PCFSoftShadowMap;

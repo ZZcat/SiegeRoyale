@@ -7,5 +7,5 @@ config = { //SAMPLE OBJECT - replace this with your data object
 };
 
 function updateSettings () {
-  updateCrossHairs();
+  crossHair.update();
 }

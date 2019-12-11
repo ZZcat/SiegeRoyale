@@ -1,3 +1,5 @@
+
+
 var menuGUI = new dat.GUI({ autoPlace: false });
 menuGUI.domElement.id = 'menu_gui';
 mainMenu_container.appendChild(menuGUI.domElement);
@@ -13,8 +15,8 @@ menuGUI.add(config, "name").listen();
 
 
 //menuGUI.add({ 1:function(){ console.log("port1..."); serverStart(2000); }}, '1');
-//menuGUI.add({ 2:function(){ console.log("port2..."); serverStart(2001); }}, '2');
-menuGUI.add({ start:function(){ console.log("Starting..."); server(config['name'
+//menuGUI.add({ 2:function(){ console.log("port2..."); serverStart(2001); }}, '2');server
+menuGUI.add({ start:function(){ console.log("Starting..."); server = new serverZ(config['name'
 ], 2000); game.start(); menuGUI.close() }}, 'start');
 
 

@@ -1,11 +1,13 @@
 var gameGUI;
+var gfx;
+let inGameMenu = new inGameMenuZ;
+let crossHair = new crossHairZ;
 
 function gameZ() {
 
 
 
   let gfx = new gfxZ();
-  let inGameMenu = new inGameMenuZ
 
   this.start = function() {
     gfx.start();
@@ -14,7 +16,8 @@ function gameZ() {
     gfx.startLighting(); // Lights (aka fps killers)
     gfx.createSky();
 
-    inGameMenu.start()
+    //let inGameMenu = new inGameMenuZ;
+    inGameMenu.start();
 
     updateSettings();
 
@@ -23,10 +26,11 @@ function gameZ() {
       //console.log(document.hasFocus())
       if (document.pointerLockElement ) {
         controlLock = 3;
+        crossHair.show();
       }
       if (document.pointerLockElement==null && controlLock==3) {
         controlLock = 2; // Drop to in game menu
-        gameGUI.show();
+        inGameMenu.show(); console.log(3); crossHair.hide();
       }
 
       if (controlLock == 2) {

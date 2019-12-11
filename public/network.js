@@ -1,4 +1,4 @@
-function server (username, port) {
+function serverZ (username, port) {
 
   //function randomChoice(arr) {
   //    return arr[Math.floor(arr.length * Math.random())];
@@ -34,9 +34,10 @@ function server (username, port) {
 
   this.updatePosition = function () {
     socket.emit("updatePosition", player.pos.x, player.pos.y, player.pos.z, angle.z);
+    console.log("up");
   };
 
-  setInterval(this.updatePosition, config["pingSpoof"])
+  //setInterval(this.updatePosition, config["pingSpoof"])
 
   socket.on("worldPositions", function(newWorld) {
     world = newWorld;

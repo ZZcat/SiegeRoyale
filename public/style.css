@@ -85,6 +85,11 @@ svg {
   top: 0%;
   left: 0%;
 }
+#main_container{
+  position: absolute;
+  top: 0%;
+  left: 0%;
+}
 #gui{
   transform:translate(-50%, -100px); // - Half size
 }

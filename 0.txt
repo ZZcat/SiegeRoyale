@@ -1,10 +1,12 @@
 ######################################
-
+|
 BUGS:
   - Make sure user is only in one server at a time
-
+  - Part of crosshair disappears on setting `1` when using chrome on linux.
+  - Looking straight down causing movement to be inversed
+|
 ######################################
-
+|
 Alex TODO:
   - Update todo list (move paper list to LOW PRI)
   - Make game start menu in js
@@ -13,13 +15,16 @@ Gabe TODO:
   - Join repl.it
 
 Zach TODO:
-  - Finish making updatePosition dynamic. Make it into a function and then recall setInterval(functionName, interval). Resume button needs to call setInterval
+  - Create project github
+  - Create todo on github
+  - Add todo items on github by difficalty and priority
   - Allow users to login using a google account
   - Sync user data on accounts
   - Fix blur of pixel blocks
 
+|
 ######################################
-
+|
 Low pri:
   - Make resize event look better
   - Clean up controls (sperate into files)
@@ -33,5 +38,23 @@ Low pri:
   - Accounts
   - Get better background image
   - Improve logo for site
-
+  - Fix exscape
+  - Multible clients
+  - Add stats/debug option
+  - Clean up index.html... be carful about order of game and gui's.
+  - Add documentation
+  - Muli-server support
+  - Make it so information isn't spammed to clients
+  - Allow clients to pick there bandwidth settings
+  - Gamepad support
+  - Better sky
+  - Multible crosshair shapes
+  - Force changing z (height) glitches jumping/gravity
+  - minecraft like speed effect
+  - improve fps
+|
 ######################################
+
+Done:
+Ping spoofing - ZZ
+Hide crosshair when ingame menu is open. - ZZ

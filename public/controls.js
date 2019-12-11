@@ -25,8 +25,8 @@ function move() {
 
 // Keyboard
 var keys = {};
-window.onkeyup = function(e) { keys[e.keyCode] = false; }
-window.onkeydown = function(e) { keys[e.keyCode] = true; menuControl()}
+window.onkeyup = function(e)   { keys[e.keyCode] = false; menuControl();}
+window.onkeydown = function(e) { keys[e.keyCode] = true;  }
 
 var distance = 0.1;
 
@@ -207,15 +207,16 @@ function touchControl(event) {
 
 //-------------------------------//
 function menuControl() {
-  if (controlModes.includes(1)) {menuControl1()}
-  if (controlModes.includes(2)) {menuControl2()}
+  if (keys[27] === true) {
+    if (controlModes.includes(1)) {menuControl1()}
+    if (controlModes.includes(2)) {menuControl2()}
+  }
 }
 
 function menuControl1() {
-  if (keys[27] == true){ // Escape /// FiXME
     keys[27] = false; // Only run once... 
     if (controlLock==2) {
       canvas.requestPointerLock();
+      console.log("A lock");
     }
-  }
 }

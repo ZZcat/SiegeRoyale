@@ -1,3 +1,5 @@
+var netUPI;
+
 function inGameMenuZ () {
   this.gameGUI = new dat.GUI({ autoPlace: false, width: 400 });
   this.start = function () {
@@ -21,7 +23,7 @@ function inGameMenuZ () {
 
 
 
-    gameGUI.add({ resume:function(){ gameGUI.hide(); canvas.requestPointerLock(); setInterval(server.updatePosition, config["pingSpoof"]); updateSettings() }}, 'resume');
+    gameGUI.add({ resume:function(){ gameGUI.hide(); canvas.requestPointerLock(); clearInterval(netUPI); netUPI=setInterval(server.updatePosition, config["pingSpoof"]); updateSettings() }}, 'resume');
     //mouseSensitivity
     gameGUI1.open();
     gameGUI2.open();
@@ -30,6 +32,6 @@ function inGameMenuZ () {
     this.gameGUI.hide()
   }
   this.show = function (){
-    this.gameGUI.show()
+    this.gameGUI.show(); console.log(999);
   } 
 }
