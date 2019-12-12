@@ -1,20 +1,48 @@
+const fs = require('fs'); // File reading and writing
+
 const express = require('express');
 const app = express();
 const serv = require('http').Server(app);
 
-app.use('/', express.static(__dirname + '/public/'));
-
-serv.listen(2000);
-console.log('Server started.');
-
-console.log( serv.address());
 
 const io = require('socket.io')(serv, {'pingInterval': 2000, 'pingTimeout': 5000}); // timeout in ms
 
-const fs = require('fs');
+app.use('/', express.static(__dirname + '/public/'));
+serv.listen(2000);
+console.log('Server started.');
+console.log( serv.address());
+
+// File Reading/Writing:
+var serverData = {}
+function ZserverFile() {
+  this.read = function () {
+    // Create backup
+    fs.createReadStream('ZserverData.csv').pipe(fs.createWriteStream('ZserverData'+Date.now()+'.csv'));
+    // Read
+    fs.readFile('ZserverData.csv', function (err, data) {
+      if (err) throw err;
+      serverData = JSON.parse(data);
+    });
+  }
+  this.write = function () {
+    // Write
+    fs.writeFile('ZserverData.csv', JSON.stringify(serverData, null, 2), (err) => {
+    if (err) throw err;
+    // This line will run on pass
+    });
+  }
+};
+serverFile = new ZserverFile();
+serverFile.read();
 
 var users = {};
 var world = {};
+
+
+setInterval(() => {
+	serverData = {"world": world};
+  serverFile.write()
+}, 15*1000); // Backup every 15 seconds
 
 setInterval(() => {
 	//update();
