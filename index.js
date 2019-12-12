@@ -19,10 +19,7 @@ function ZserverFile() {
     // Create backup
     fs.createReadStream('ZserverData.csv').pipe(fs.createWriteStream('ZserverData'+Date.now()+'.csv'));
     // Read
-    fs.readFile('ZserverData.csv', function (err, data) {
-      if (err) throw err;
-      serverData = JSON.parse(data);
-    });
+    serverData = JSON.parse(fs.readFileSync('ZserverData.csv', {encoding: 'utf-8'}))
   }
   this.write = function () {
     // Write
@@ -32,17 +29,23 @@ function ZserverFile() {
     });
   }
 };
-serverFile = new ZserverFile();
-serverFile.read();
+
 
 var users = {};
-var world = {};
+var world = {"online":{}, "offline":{}};
+
+serverFile = new ZserverFile();
+serverFile.read();
+console.log(serverData, 1);
+world = serverData["world"];
+console.log(world);
+console.log(555);
 
 
 setInterval(() => {
 	serverData = {"world": world};
   serverFile.write()
-}, 15*1000); // Backup every 15 seconds
+}, 5*1000); // Backup every 5 seconds
 
 setInterval(() => {
 	//update();
@@ -57,20 +60,21 @@ io.sockets.on('connection', function (socket)
       console.log("User has joined");
       console.log(username);
       users[socket.id] = socket.username; //users.push(socket.username);
-      world[socket.id] = {"x": 0, "y": 0, "z": 0, "rotZ": 0};
+      world["online"][socket.id] = {"x": 0, "y": 0, "z": 0, "rotZ": 0};
       io.sockets.emit("userList", users);
       console.log("LOG 5");
 
       // Nest these other functions to force the user to login
       socket.on('updatePosition', function (x, y, z, rotZ) { // Also on timeout
-        world[socket.id] = {"x": x, "y": y, "z": z, "rotZ": rotZ};
+        world["online"][socket.id] = {"x": x, "y": y, "z": z, "rotZ": rotZ};
         io.sockets.emit("worldPositions", world);
         //console.log(world);
       });
       socket.on('disconnect', function () { // Also on timeout
         console.log("disconnect");
         delete users[socket.id];
-        delete world[socket.id];
+        world["offline"][socket.id] = world["online"][socket.id];
+        delete world["online"][socket.id];
       });
 
     });
