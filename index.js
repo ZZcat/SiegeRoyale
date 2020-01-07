@@ -42,6 +42,7 @@ console.log(world);
 console.log(555);
 
 
+
 setInterval(() => {
 	serverData = {"world": world};
   serverFile.write()
@@ -75,14 +76,23 @@ io.sockets.on('connection', function (socket)
         delete users[socket.id];
         world["offline"][socket.id] = world["online"][socket.id];
         delete world["online"][socket.id];
+				console.log("disconnect passed")
       });
 
     });
 })
 
-setInterval(() => {
+setInterval(() => { // Kick clients who appear connected in world (from file) but that don't have a socket connection
   var clients = io.sockets.clients();
-	//console.log("---\n",clients.in,"---\n");
-
-
+	//console.log("---\n",Object.keys(clients['connected']),"---\n");
+	//console.log("C:" + Object.keys(clients['connected']));
+	for (onlineID in world["online"]) {
+		if (!Object.keys(clients['connected']).includes(onlineID)) {
+			console.log("Autokicking "+onlineID)
+			delete users[onlineID];
+			world["offline"][onlineID] = world["online"][onlineID];
+			delete world["online"][onlineID];
+			console.log("autokick done")
+		}
+	}
 }, 1*1000);
