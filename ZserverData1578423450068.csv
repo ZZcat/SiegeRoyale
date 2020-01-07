@@ -1,0 +1,38 @@
+{
+  "world": {
+    "online": {
+      "jj19tgM90yS8gN4ZAAAB": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "rotZ": 0
+      },
+      "exRmjszDQiBpTHpfAAAB": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "rotZ": 0
+      }
+    },
+    "offline": {
+      "NPnt2IDe9BPUKDe6AAAA": {
+        "x": -5.188842521993569,
+        "y": 0.9526579746946063,
+        "z": 0,
+        "rotZ": -1.8600000000000003
+      },
+      "Mqf9YKTH72VPtUa3AAAA": {
+        "x": 0,
+        "y": 0,
+        "z": 0,
+        "rotZ": 0
+      },
+      "Qe2xckL_OpALRLuyAAAB": {
+        "x": -11.21676999218769,
+        "y": 7.095493326805977,
+        "z": 0,
+        "rotZ": -1.5400000000000011
+      }
+    }
+  }
+}

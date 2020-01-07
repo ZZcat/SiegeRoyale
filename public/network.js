@@ -55,7 +55,8 @@ function serverZ (username, port) {
     for (const trash of people.keys()) {
       scene.remove(people.pop());
     }
-    for (const [key1, value1] of Object.entries(world)) {
+		console.log(world['online']);
+    for (const [key1, value1] of Object.entries(world['online'])) {
       if (key1 !== socket.id) {
         person = new THREE.Mesh( personGeometry, personMaterial );
         person.position.x = value1["x"];
@@ -65,6 +66,7 @@ function serverZ (username, port) {
         person.castShadow = true;
         people.push(person);
         scene.add(person);
+				console.log();
       }
     }
   }
