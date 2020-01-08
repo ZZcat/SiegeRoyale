@@ -5,12 +5,13 @@ function serverZ (username, port) {
   //}
 
   var socket = io();
-
+	//this.socket = socket;
   //socket.connect(2001, "https://siege-royale.zachz.repl.co/", function () {
   //    console.log("Client: Connected to server");
   //});
 
- // var socket = io.connect('localhost:'+port);
+  var socket = io.connect('siegeroyale.zachz.repl.co');
+	this.socket = socket;
 
   let id;
   socket.on('id', i => (id = i));
@@ -34,7 +35,7 @@ function serverZ (username, port) {
 
   this.updatePosition = function () {
     socket.emit("updatePosition", player.pos.x, player.pos.y, player.pos.z, angle.z);
-    console.log("up");
+    //console.log("up");
   };
 
   //setInterval(this.updatePosition, config["pingSpoof"])

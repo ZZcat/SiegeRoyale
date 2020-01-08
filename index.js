@@ -8,7 +8,17 @@ const serv = require('http').Server(app);
 const io = require('socket.io')(serv, {'pingInterval': 2000, 'pingTimeout': 5000}); // timeout in ms
 
 app.use('/', express.static(__dirname + '/public/'));
+console.log("Trying to start server...");
 serv.listen(2000);
+/*serv.listen(function(){
+  var address = serv.address();
+  var port = address.port;
+  var family = address.family;
+  var ipaddr = address.address;
+  console.log('Server is listening at port' + port);
+  console.log('Server ip :' + ipaddr);
+  console.log('Server is IP4/IP6 : ' + family);
+});*/
 console.log('Server started.');
 console.log( serv.address());
 
