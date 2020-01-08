@@ -70,6 +70,7 @@ function move1() { //WASD 87 65 83 68
   if (Math.sign(b)==-1){
     forwardMoveAngle += Math.PI
   }
+	console.log(forwardMoveAngle);
   //console.log(a,b,forwardMoveAngle);
   // W key
   if (keys[87] == true){
